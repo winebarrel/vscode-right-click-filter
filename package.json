@@ -9,6 +9,9 @@
   "categories": [
     "Other"
   ],
+  "repository": {
+    "url": "https://github.com/winebarrel/vscode-right-click-filter"
+  },
   "icon": "etc/icon.png",
   "author": {
     "name": "Genki Sugawara",
