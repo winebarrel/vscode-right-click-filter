@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 
-async function filterTextBySelection() {
+async function filterTextBySelection(options: { exclude: boolean }) {
   const activeTextEditor = vscode.window.activeTextEditor;
 
   if (!activeTextEditor) {
@@ -21,11 +21,11 @@ async function filterTextBySelection() {
     return;
   }
 
-  const content =
-    text
-      .split(/\r?\n/)
-      .filter((line) => line.includes(selectedText))
-      .join("\n") + "\n";
+  const f = options.exclude
+    ? (l: string) => !l.includes(selectedText)
+    : (l: string) => l.includes(selectedText);
+
+  const content = text.split(/\r?\n/).filter(f).join("\n") + "\n";
 
   if (!content.trim()) {
     return;
@@ -35,13 +35,28 @@ async function filterTextBySelection() {
   vscode.window.showTextDocument(document);
 }
 
+async function filterTextBySelectionCmd() {
+  await filterTextBySelection({ exclude: false });
+}
+
+async function excludeTextBySelectionCmd() {
+  await filterTextBySelection({ exclude: true });
+}
+
 export function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand(
-    "right-click-filter.filterTextBySelection",
-    filterTextBySelection
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "right-click-filter.filterTextBySelection",
+      filterTextBySelectionCmd
+    )
   );
 
-  context.subscriptions.push(disposable);
+  context.subscriptions.push(
+    vscode.commands.registerCommand(
+      "right-click-filter.excludeTextBySelection",
+      excludeTextBySelectionCmd
+    )
+  );
 }
 
 export function deactivate() {}
