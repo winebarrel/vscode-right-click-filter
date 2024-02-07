@@ -26,6 +26,10 @@
       {
         "command": "right-click-filter.filterTextBySelection",
         "title": "Filter Text by Selection"
+      },
+      {
+        "command": "right-click-filter.excludeTextBySelection",
+        "title": "Exclude Text by Selection"
       }
     ],
     "menus": {
@@ -34,6 +38,11 @@
           "command": "right-click-filter.filterTextBySelection",
           "when": "editorHasSelection",
           "group": "right-click-filter@1"
+        },
+        {
+          "command": "right-click-filter.excludeTextBySelection",
+          "when": "editorHasSelection",
+          "group": "right-click-filter@2"
         }
       ]
     }

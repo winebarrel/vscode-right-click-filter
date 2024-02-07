@@ -5,6 +5,6 @@
 
 VS Code extension to filter text by selected text.
 
-![](https://github.com/winebarrel/vscode-right-click-filter/assets/117768/cbcb26b3-e955-4000-8186-29e90b641edf)
+![](https://github.com/winebarrel/vscode-right-click-filter/assets/117768/cf6ee89c-ff7f-446d-b0e0-06a7fcbcc4f7)
 
 ![](https://github.com/winebarrel/vscode-right-click-filter/assets/117768/2dfcd892-7463-4192-a367-301f1d46e386)
