@@ -4,7 +4,7 @@
   "description": "VS Code extension to filter text by selected text.",
   "version": "0.2.0",
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.86.0"
   },
   "categories": [
     "Other"
